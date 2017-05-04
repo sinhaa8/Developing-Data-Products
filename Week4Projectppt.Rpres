@@ -1,0 +1,67 @@
+
+
+
+ABCD college grade Calculator
+========================================================
+author: by Ashish Sinha
+date: 04/05/2017
+autosize: true
+transition: rotate
+Course Project: Shiny Application and Reproducible Pitch
+
+Coursera Developing Data Products Moodule 9 Week 4
+
+Overview
+========================================================
+
+- ABCD college grade calulcator will quantify the overall performance of indiviual assessment and give the grade based on weightage provided on each assessment. 
+- The weightage are 1.1st Trimester marks-20% 2.2nd Trimester Marks-20% 3.Final Exam Marks-40% 4.Practical Exam Marks-10% 5.Sports Marks-5% 6.Community Development marks-5% 
+
+```{r, echo=FALSE}
+latexImg = function(latex){
+
+    link = paste0('http://latex.codecogs.com/gif.latex?',
+           gsub('\\=','%3D',URLencode(latex)))
+
+    link = gsub("(%..)","\\U\\1",link,perl=TRUE)
+    return(paste0('![](',link,')'))
+}
+
+```
+
+[The app itself on the shiny server](https://sinhaa8.shinyapps.io/Week4V1/)
+
+Calculations
+========================================================
+Calculations and rounding performed by the a simple code. Here we convert cm into m by dividing by 100.
+```{r, eval=FALSE}
+number = round((trim1*.2)+(trim2*.2)+(input$final*.4)+(pract*.1)+(sport*.05)+(commd*.05))
+```
+The following code is used to plot the calculated BMI as compered to . Green area is a normal BMI.
+```{r, eval=FALSE}
+dat<-matrix(c(33, 17, 10 ,20 , 20), ncol = 1, nrow = 5)
+    barplot(dat, horiz = TRUE, yaxt="n", xlab = "number", main="Your Performance", col=c("red", "purple", "orange", "brown", "green"))
+    lines(x=c(21, 21), y=c(0,1.2), col="blue", lwd=4)
+```
+
+Plot
+========================================================
+This example represents Overall Percentage is 70 .It is GRADE A
+
+```{r, echo=FALSE}
+dat<-matrix(c(33, 17, 10 ,20 , 20), ncol = 1, nrow = 5)
+  barplot(dat, horiz = TRUE, yaxt="n", xlab = "number", main="Your Performance", col=c("red", "purple", "orange", "brown", "green"))
+    lines(x=c(70, 70), y=c(0,1.2), col="blue", lwd=4)
+```
+
+Links
+========================================================
+
+[The Source code for the project]
+
+(https://github.com/sinhaa8/Developing-Data-Products)
+
+[The app itself on the Shiny server]
+
+((https://sinhaa8.shinyapps.io/Week4V1/)
+
